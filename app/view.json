@@ -1,0 +1,98 @@
+{
+  "node::root": {
+    "common.position": {
+      "x": 1048.2572652694755,
+      "y": -91.53411120235555
+    }
+  },
+  "node::greeting": {
+    "common.position": {
+      "x": 1480,
+      "y": -81.19049700932685
+    }
+  },
+  "node::transfer_money": {
+    "common.position": {
+      "x": 1990.6991078669912,
+      "y": -26.330621451743696
+    }
+  },
+  "node::amount_conformation": {
+    "common.position": {
+      "x": 1799.953125,
+      "y": 248.96875
+    }
+  },
+  "node::from_account": {
+    "common.position": {
+      "x": 0,
+      "y": 401.953125
+    }
+  },
+  "node::to_account": {
+    "common.position": {
+      "x": 599.984375,
+      "y": 433.4453125
+    }
+  },
+  "node::account_conformation": {
+    "common.position": {
+      "x": 1199.96875,
+      "y": 474.9375
+    }
+  },
+  "node::transfer_conformation": {
+    "common.position": {
+      "x": 1799.953125,
+      "y": 474.9375
+    }
+  },
+  "node::process_transfer": {
+    "common.position": {
+      "x": 5710.594434306569,
+      "y": 1341.6528284671535
+    }
+  },
+  "node::transfer_confirmation": {
+    "common.position": {
+      "x": 5196.98296836983,
+      "y": 1080.972171532847
+    }
+  },
+  "node::account_confirmation": {
+    "common.position": {
+      "x": 4967.287847076491,
+      "y": 816.0858146829286
+    }
+  },
+  "node::resolve_target_account": {
+    "common.position": {
+      "x": 4585.561610674385,
+      "y": 572.6636107253083
+    }
+  },
+  "node::select_target_account": {
+    "common.position": {
+      "x": 4044.4768856447695,
+      "y": 505.20681265206815
+    }
+  },
+  "node::resolve_source_account": {
+    "common.position": {
+      "x": 3533.5279805352798,
+      "y": 239.9026763990268
+    }
+  },
+  "node::select_source_account": {
+    "common.position": {
+      "x": 3037.956204379562,
+      "y": 135.47445255474452
+    }
+  },
+  "node::amount_confirmation": {
+    "common.position": {
+      "x": 2528.8564476885645,
+      "y": 53.625304136253135
+    }
+  }
+}
