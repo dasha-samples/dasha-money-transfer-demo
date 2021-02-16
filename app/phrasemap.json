@@ -38,7 +38,7 @@
       "dont_understand_forward": {}
     },
     "phrases": {
-      "i_will_call_back": [{ "text": "Okay, I'll call you later. Bye!", "voiceInfo": { "speed": 1.2, "variation": 5 } }],
+      "i_will_call_back": [{ "text": "Okay, I'll call you later. Bye!", "voiceInfo": { "speed": 1.3, "variation": 5 } }],
       "hello": {
         "random": [
           [{ "text": "Hello" }],
@@ -93,7 +93,7 @@
         "first": [
           {
             "text": "Hello, this is Acme bank. How can I help you?",
-            "voiceInfo": { "speed": 1.2, "variation": 5 }
+            "voiceInfo": { "speed": 1.3, "variation": 5 }
           }
         ],
         "repeat": {
@@ -110,13 +110,13 @@
       "will_help": [
         {
           "text": "Absolutely, we can assist you with that.",
-          "voiceInfo": { "speed": 1.2, "variation": 40 }
+          "voiceInfo": { "speed": 1.3, "variation": 40 }
         }
       ],
       "how_much": [
         {
           "text": "How much money would you like to transfer?",
-          "voiceInfo": { "speed": 1.2, "variation": 40 }
+          "voiceInfo": { "speed": 1.3, "variation": 40 }
         }
       ],
       "ask_amount_confirmation": [
@@ -139,7 +139,7 @@
       ],
       "select_target_account": [
         {
-          "text": "I got it. I can transfer", "voiceInfo": { "speed": 1.2, "variation": 5 }
+          "text": "I got it. I can transfer", "voiceInfo": { "speed": 1.3, "variation": 5 }
         }
       ],
       "dynamic_transit_id": [
@@ -148,7 +148,7 @@
       ],
       "ask_account_confirmation": [
         {
-          "text": "Got it. So transferring to ", "voiceInfo": { "speed": 1.2, "variation": 5 }
+          "text": "Got it. So transferring to ", "voiceInfo": { "speed": 1.3, "variation": 5 }
         },
         { "id": "account", "type": "dynamic" },
         {
@@ -158,7 +158,7 @@
 
       "ask_transfer_confirmation_amount": [
         {
-          "text": "Awesome! Let's summarize! Transferring $",  "voiceInfo": { "speed": 1.2, "variation": 5 }
+          "text": "Awesome! Let's summarize! Transferring $",  "voiceInfo": { "speed": 1.3, "variation": 5 }
         },
         { "id": "amount", "type": "dynamic" },
         { "text": " " }
@@ -181,7 +181,7 @@
       "wait_for_processing": [{ "text": "Wait for a second please while I'm executing the transfer." }],
       "transfer_success": [
         { "text": "Transfer is completed. " },
-        { "text": "Have a really nice day!",  "voiceInfo": { "speed": 1.2, "variation": 5 } }
+        { "text": "Have a really nice day!",  "voiceInfo": { "speed": 1.3, "variation": 5 } }
       ],
       "transfer_failed": [
         { "text": "Transfer failed. " },

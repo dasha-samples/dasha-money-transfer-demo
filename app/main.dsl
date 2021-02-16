@@ -42,19 +42,9 @@ start node root
     do
     {
         #connectSafe($phone);
-        wait *;
-    }
-    transitions
-    {
-        greeting: goto greeting on true;
-    }
-}
-
-node greeting
-{
-    do
-    {
+        #waitForSpeech(1000);
         #say("greeting");
+
         wait *;
     }
     transitions
