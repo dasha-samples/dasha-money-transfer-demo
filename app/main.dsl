@@ -178,6 +178,8 @@ node transfer_money
                     : digression.transfer_data.account;
                 set $target_account = external resolve_target_account(account);
             }
+            set digression.transfer_data.account = "";
+            goto loop;
         }
         goto confirm;
     }
