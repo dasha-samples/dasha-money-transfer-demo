@@ -1,8 +1,8 @@
 {
   "node::root": {
     "common.position": {
-      "x": 1048.2572652694755,
-      "y": -91.53411120235555
+      "x": 0,
+      "y": 2831
     }
   },
   "node::greeting": {
@@ -13,8 +13,8 @@
   },
   "node::transfer_money": {
     "common.position": {
-      "x": 1990.6991078669912,
-      "y": -26.330621451743696
+      "x": 600,
+      "y": 2846
     }
   },
   "node::amount_conformation": {
@@ -49,20 +49,20 @@
   },
   "node::process_transfer": {
     "common.position": {
-      "x": 5710.594434306569,
-      "y": 1341.6528284671535
+      "x": 1800,
+      "y": 2915.282576029597
     }
   },
   "node::transfer_confirmation": {
     "common.position": {
-      "x": 5196.98296836983,
-      "y": 1080.972171532847
+      "x": 1196.3113031432886,
+      "y": 2898.1040649521046
     }
   },
   "node::account_confirmation": {
     "common.position": {
-      "x": 4967.287847076491,
-      "y": 816.0858146829286
+      "x": 600,
+      "y": 834
     }
   },
   "node::resolve_target_account": {
@@ -73,8 +73,8 @@
   },
   "node::select_target_account": {
     "common.position": {
-      "x": 4044.4768856447695,
-      "y": 505.20681265206815
+      "x": 1200,
+      "y": 641
     }
   },
   "node::resolve_source_account": {
@@ -85,14 +85,140 @@
   },
   "node::select_source_account": {
     "common.position": {
-      "x": 3037.956204379562,
-      "y": 135.47445255474452
+      "x": 600,
+      "y": 428
     }
   },
   "node::amount_confirmation": {
     "common.position": {
-      "x": 2528.8564476885645,
-      "y": 53.625304136253135
+      "x": -1.6453279873485465,
+      "y": 1125
+    }
+  },
+  "node::parse_transfer_data": {
+    "common.position": {
+      "x": 600,
+      "y": 2745.7368102199844
+    }
+  },
+  "node::answering_machine": {
+    "common.position": {
+      "x": 0,
+      "y": 169
+    }
+  },
+  "node::i_will_call_back": {
+    "common.position": {
+      "x": 0,
+      "y": 315
+    }
+  },
+  "node::can_hear_you": {
+    "common.position": {
+      "x": 0,
+      "y": 461
+    }
+  },
+  "node::dont_understand_hangup_params": {
+    "common.position": {
+      "x": 0,
+      "y": 607
+    }
+  },
+  "node::dont_understand": {
+    "common.position": {
+      "x": 0,
+      "y": 773
+    }
+  },
+  "node::dont_understand_preprocessor": {
+    "common.position": {
+      "x": 0,
+      "y": 939
+    }
+  },
+  "node::hello": {
+    "common.position": {
+      "x": 0,
+      "y": 1105
+    }
+  },
+  "node::hello_preprocessor": {
+    "common.position": {
+      "x": 0,
+      "y": 1271
+    }
+  },
+  "node::i_am_robot": {
+    "common.position": {
+      "x": 0,
+      "y": 1417
+    }
+  },
+  "node::repeat_preprocessor": {
+    "common.position": {
+      "x": 0,
+      "y": 1563
+    }
+  },
+  "node::repeat_hangup_params": {
+    "common.position": {
+      "x": 0,
+      "y": 1709
+    }
+  },
+  "node::repeat": {
+    "common.position": {
+      "x": 0,
+      "y": 1875
+    }
+  },
+  "node::ping": {
+    "common.position": {
+      "x": 0,
+      "y": 2061
+    }
+  },
+  "node::wait": {
+    "common.position": {
+      "x": 0,
+      "y": 2227
+    }
+  },
+  "node::sorry_wont_call": {
+    "common.position": {
+      "x": 0,
+      "y": 2373
+    }
+  },
+  "node::swear_words": {
+    "common.position": {
+      "x": 0,
+      "y": 2519
+    }
+  },
+  "node::hangup": {
+    "common.position": {
+      "x": 0,
+      "y": 2665
+    }
+  },
+  "node::dont_understand_hangup": {
+    "common.position": {
+      "x": 600,
+      "y": 773
+    }
+  },
+  "node::hello_hangup": {
+    "common.position": {
+      "x": 600,
+      "y": 1105
+    }
+  },
+  "node::repeat_or_ping_hangup": {
+    "common.position": {
+      "x": 600,
+      "y": 1880
     }
   }
 }
