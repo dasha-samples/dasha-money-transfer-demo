@@ -1,0 +1,90 @@
+{
+  "version": "v2",
+  "intents": {
+    "transfer_money": {
+      "includes": [
+        "Transfer money",
+        "Transfer 50 dollars",
+        "I want to transfer money",
+        "I'd like to transfer money",
+        "Could I transfer some money",
+        "I want to transfer some money",
+        "Transfer to (Wells Fargo)[bank:target] from my (savings account)[account:source]",
+        "Transfer 12 dollars to (Wells Fargo)[bank:target] from my (savings account)[account:source]",
+        "Transfer money to (deposit account)[account:target] from (savings account)[account:source] ",
+        "I want to transfer money from my (savings)[account:source]",
+        "Transfer from my (deposit account)[account:source] to (savings)[account:target]",
+        "I'd like to transfer to (Wells Fargo)[bank:target]",
+        "I want to transfer some money to (savings)[account:target]"
+      ],
+      "excludes": [
+        "can you say how much money I have",
+        "what's my balance",
+        "why do I need to transfer money"
+      ]
+    },
+    "agreement#pos": {
+      "includes": [
+        "yes",
+        "yeah",
+        "yes I confirm",
+        "confirm",
+        "correct",
+        "yes thats correct",
+        "thats correct"
+      ]
+    },
+    "agreement#neg": {
+      "includes": ["no", "nope", "there is mistake", "thats wrong"]
+    }
+  },
+  "entities": {
+    "account": {
+      "open_set": false,
+      "values": [
+        {
+          "value": "savings",
+          "synonyms": ["savings account", "saving"]
+        },
+        {
+          "value": "deposit",
+          "synonyms": ["deposit account"]
+        }
+      ],
+      "includes": [
+        "From (deposit account)[account:source]",
+        "from (savings)[account:source] please",
+        "To (deposit account)[account:target]",
+        "From my (saving)[account:source]",
+        "To my (saving)[account:target]",
+        "My (saving)[account]",
+        "(Savings)[account] please"
+      ]
+    },
+    "bank": {
+      "open_set": true,
+      "values": [
+        {
+          "value": "Wells Fargo",
+          "synonyms": ["Wells Fargos", "Fargo", "fargo bank"]
+        },
+        { "value": "Bank of America" },
+        {
+          "value": "JPMorgan Chase",
+          "synonyms": [
+            "JPMorgan",
+            "J.P. Morgan",
+            "J.P. Morgan Chase",
+            "Morgan Chase"
+          ]
+        }
+      ],
+      "includes": [
+        "To (Wells Fargo)[bank:target] bank",
+        "(Wells Fargo)[bank] please",
+        "(JPMorgan)[bank] please"
+      ],
+      "excludes": ["dwell", "dwells"]
+    }
+  }
+}

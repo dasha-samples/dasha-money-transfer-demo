@@ -8,15 +8,12 @@
     },
     "types": {},
     "macros": {
-      "ask_amount_confirmation": {},
-      "ask_account_confirmation": {},
       "select_source_account": {},
       "source_account_variants": {},
       "select_target_account": {},
-      "dynamic_transit_id": {},
-      "ask_transfer_confirmation_amount": {},
-      "ask_transfer_confirmation_source": {},
-      "ask_transfer_confirmation_target": {},
+      "dynamic_transit_from": {},
+      "dynamic_transit_to": {},
+      "ask_transfer_confirmation": {},
       "wait_for_processing": {},
       "transfer_success": {},
       "transfer_failed": {},
@@ -38,7 +35,12 @@
       "dont_understand_forward": {}
     },
     "phrases": {
-      "i_will_call_back": [{ "text": "Okay, I'll call you later. Bye!", "voiceInfo": { "speed": 1.3, "variation": 5 } }],
+      "i_will_call_back": [
+        {
+          "text": "Okay, I'll call you later. Bye!",
+          "voiceInfo": { "speed": 1.3, "variation": 5 }
+        }
+      ],
       "hello": {
         "random": [
           [{ "text": "Hello" }],
@@ -119,69 +121,60 @@
           "voiceInfo": { "speed": 1.3, "variation": 40 }
         }
       ],
-      "ask_amount_confirmation": [
-        { "text": "Okay, you want to transfer $" },
-        { "id": "amount", "type": "dynamic" },
-        { "text": ". Is that correct?" }
-      ],
       "select_source_account": [
         {
           "text": "We found that you have multiple accounts. From which one of these two accounts you would like to transfer from?"
         }
       ],
-      "source_account_variants": [
-        { "text": "Your savings account ending " },
-        { "id": "savingsNumber", "type": "dynamic" },
-        {
-          "text": " or deposits account ending "
-        },
-        { "id": "depositNumber", "type": "dynamic" }
-      ],
       "select_target_account": [
         {
-          "text": "I got it. I can transfer", "voiceInfo": { "speed": 1.3, "variation": 5 }
+          "text": "I can transfer",
+          "voiceInfo": { "speed": 1.3, "variation": 5 }
         }
       ],
-      "dynamic_transit_id": [
+      "dynamic_transit_from": [
+        { "text": "from " },
+        { "id": "name", "type": "dynamic" },
+        { "text": " account ending " },
+        { "id": "num", "type": "dynamic" }
+      ],
+      "dynamic_transit_to": [
         { "text": "to " },
-        { "id": "number", "type": "dynamic" }
+        { "id": "name", "type": "dynamic" },
+        { "text": " account ending " },
+        { "id": "num", "type": "dynamic" }
       ],
-      "ask_account_confirmation": [
+      "ask_transfer_confirmation": [
         {
-          "text": "Got it. So transferring to ", "voiceInfo": { "speed": 1.3, "variation": 5 }
-        },
-        { "id": "account", "type": "dynamic" },
-        {
-          "text": ". Is that correct?"
-        }
-      ],
-
-      "ask_transfer_confirmation_amount": [
-        {
-          "text": "Awesome! Let's summarize! Transferring $",  "voiceInfo": { "speed": 1.3, "variation": 5 }
+          "text": "Awesome! Let's summarize! Transferring $",
+          "voiceInfo": { "speed": 1.3, "variation": 5 }
         },
         { "id": "amount", "type": "dynamic" },
-        { "text": " " }
-      ],
-      "ask_transfer_confirmation_source": [
         {
-          "text": "from "
+          "text": " from "
         },
-        { "id": "source_account", "type": "dynamic" }
-      ],
-      "ask_transfer_confirmation_target": [
+        { "id": "source_name", "type": "dynamic" },
+        { "text": " account ending " },
+        { "id": "source_num", "type": "dynamic" },
         {
-          "text": "to "
+          "text": " to "
         },
-        { "id": "target_account", "type": "dynamic" },
+        { "id": "target_name", "type": "dynamic" },
+        { "text": " account ending " },
+        { "id": "target_num", "type": "dynamic" },
         {
           "text": ". Could you confirm?"
         }
       ],
-      "wait_for_processing": [{ "text": "Wait for a second please while I'm executing the transfer." }],
+      "wait_for_processing": [
+        { "text": "Wait for a second please while I'm executing the transfer." }
+      ],
       "transfer_success": [
         { "text": "Transfer is completed. " },
-        { "text": "Have a really nice day!",  "voiceInfo": { "speed": 1.3, "variation": 5 } }
+        {
+          "text": "Have a really nice day!",
+          "voiceInfo": { "speed": 1.3, "variation": 5 }
+        }
       ],
       "transfer_failed": [
         { "text": "Transfer failed. " },
