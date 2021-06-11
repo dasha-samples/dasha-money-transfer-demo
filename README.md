@@ -1,7 +1,7 @@
 
 # Money transfer demo
 
-This example shows how to build an interactive flow that includes processing user input with entites and interaction with database (users_db.json file). If you need any help, join us in our [Developer Community](https://discord.gg/R8mDP2JGmv).
+This example shows how to build an interactive flow that includes processing user input with entites and interaction with database (users_db.json file). If you need any help, join us in our [Developer Community](https://community.dasha.ai).
 
 ## How to start the demo app
 
@@ -16,6 +16,7 @@ npm install
 2. Create or log into your account using the Dasha CLI tool:
 
 ```sh
+npm i -g "@dasha.ai/cli"
 npx dasha account login
 ```
 
@@ -26,14 +27,15 @@ npx dasha account login
     ```
      (phone number in international format without `+`, for instance `12223334455`).
 
-    When you run with phone_number, app search for user with this phone in database. Make sure that you have this phone in database.
+    When you run with phone_number, app searches for the user with this phone in the database. Make sure that you have this phone in the database.
      
     * To start text chat run
     ```sh
     npm start chat <user_id>
     ```
+    * For this example, `npm start chat 1`
 
-    When you run with user_id, app search for user with this phone in id.
+    When you run with user_id, app searches for the user with this the phone is id.
 
 ## Examples
 

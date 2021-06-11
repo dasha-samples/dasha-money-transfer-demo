@@ -73,12 +73,12 @@ async function main() {
       if (target_account !== undefined) {
         return target_account;
       }
-
-      throw new Error(JSON.stringify(account));
+      console.warn(`Can't find account ${account}`);
+      return null;
 
     } catch (e) {
-      console.log({ resolve_target_account_err: e.message });
-      return undefined;
+      console.log({ resolve_target_account_err: e });
+      return null;
     }
   });
 
@@ -120,10 +120,7 @@ async function main() {
   });
 
   conv.on("debugLog", async (event) => {
-    if (event?.msg?.msgId === "RecognizedSpeechMessage") {
-      const logEntry = event?.msg?.results[0]?.facts;
-      await logFile.appendFile(JSON.stringify(logEntry, undefined, 2) + "\n");
-    }
+    await logFile.appendFile(JSON.stringify(event, undefined, 2) + "\n");
   });
 
   const result = await conv.execute();

@@ -177,6 +177,11 @@ node transfer_money
                     ? digression.transfer_data.target_account
                     : digression.transfer_data.account;
                 set $target_account = external resolve_target_account(account);
+                if ($target_account is null)
+                {
+                    set digression.transfer_data.target_account = "";
+                    #sayText("Can't find account " + account);
+                }
             }
             set digression.transfer_data.account = "";
             goto loop;
