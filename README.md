@@ -56,7 +56,7 @@ Human: transfer 50 dollars from savings to wells fargo bank
 AI: Awesome! Let's summarize! Transferring $50 from savings account ending 12 65 to Wells Fargo account ending 92 41. Could you confirm?   
 Human: yes   
 AI: Wait for a second please while I'm executing the transfer.   
-AI: Transfer is completed. Have a really nice day!   
+AI: Transfer is completed. Have a great day! 
 
 ################################
 
@@ -69,7 +69,7 @@ Human: 1265
 AI: Awesome! Let's summarize! Transferring $10 from savings account ending 12 65 to Bank of America account ending 48 79. Could you confirm?   
 Human: confirm   
 AI: Wait for a second please while I'm executing the transfer.   
-AI: Transfer is completed. Have a really nice day!   
+AI: Transfer is completed. Have a great day!   
 
 ################################
 
@@ -91,6 +91,6 @@ Human: 8145
 AI: Awesome! Let's summarize! Transferring $501 from savings account ending 12 65 to deposit account ending 81 45. Could you confirm?   
 Human: yes   
 AI: Wait for a second please while I'm executing the transfer.   
-AI: Transfer failed. Have a really nice day!   
+AI: Transfer failed. Have a great day!   
 
 (Not enough money at savings account)

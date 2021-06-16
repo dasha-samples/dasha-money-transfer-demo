@@ -23,6 +23,21 @@
         "why do I need to transfer money"
       ]
     },
+    "differentamt": {
+      "includes": [
+        "actually, can I change the transfer amount",
+        "I'd like to change transfer amount",
+        "can I change transfer amount",
+        "change transfer amount",
+        "different transfer amount",
+        "I want to transfer a different amount",
+        "I want to transfer a different amount to my account",
+        "different amount",
+        "select a different amount",
+        "I want to select another amount"
+      ]
+    },
+
     "agreement#pos": {
       "includes": [
         "yes",
