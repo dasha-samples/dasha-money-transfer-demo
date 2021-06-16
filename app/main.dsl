@@ -56,7 +56,7 @@ start node root
             if (digression.transfer_data.target_account != "") {
                 set $target_account = external resolve_target_account(digression.transfer_data.target_account);
             }
-
+ 
             set digression.transfer_data.amount = "";
             set digression.transfer_data.account = "";
         }
@@ -153,6 +153,11 @@ node transfer_money
                     ? digression.transfer_data.source_account
                     : digression.transfer_data.account;
                 set $source_account = external resolve_source_account(account);
+                if ($source_account is null)
+                {
+                    set digression.transfer_data.source_account = "";
+                    #sayText("Can't find account " + account);
+                }
             }
             set digression.transfer_data.account = "";
             goto loop;
