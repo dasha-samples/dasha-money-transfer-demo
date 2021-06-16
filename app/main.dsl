@@ -143,7 +143,7 @@ node transfer_money
             {
                 #say("select_source_account");
                 for (var account in $userAccounts) {
-                    #say("dynamic_transit_from", { name: account?.name, num: account?.num });
+                    #say("dynamic_transit_from", { name: account?.name, num: account?.num }, repeatMode: "complement");
                 }
                 wait *;
             }
@@ -164,10 +164,10 @@ node transfer_money
             {
                 #say("select_target_account");
                 for (var account in $bankAccounts) {
-                    #say("dynamic_transit_to", { name: account?.name, num: account?.num });
+                    #say("dynamic_transit_to", { name: account?.name, num: account?.num }, repeatMode: "complement");
                 }
                 for (var account in $userAccounts) {
-                    #say("dynamic_transit_to", { name: account?.name, num: account?.num });
+                    #say("dynamic_transit_to", { name: account?.name, num: account?.num }, repeatMode: "complement");
                 }
                 wait *;
             }
@@ -194,6 +194,36 @@ node transfer_money
         loop: goto transfer_money;
         confirm: goto transfer_confirmation;
     }
+}
+
+block get_new_amount(): string {
+  start node new_amount {
+    do {
+        if(#messageHasData("numberword", { value: true })){
+           var amount = #messageGetData("numberword", { value: true })[0]?.value??"";
+           #sayText("Awesome, I've just changed the transfer amount to " + amount, repeatMode: "ignore");
+           return amount;
+        }
+        else {
+            #sayText("What's the amount you want to be transfered?", repeatMode: "ignore");
+            wait *;
+        }
+    }
+    transitions {
+      new_amount: goto new_amount on true;
+    }
+  }
+}
+
+digression different_amount
+{
+    conditions {on #messageHasIntent("differentamt");}
+    do {
+        set $amount = blockcall get_new_amount();
+        #repeat();
+        return;
+    }
+    transitions {}
 }
 
 node transfer_confirmation

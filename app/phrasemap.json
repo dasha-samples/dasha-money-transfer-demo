@@ -87,7 +87,7 @@
       "mhm": [{ "text": "Mgm..." }],
       "yes_i_am_a_robot": [
         {
-          "text": "Yes, I am a robot! Please do not tell anybody about this or I get fired"
+          "text": "Yes, I am a robot! Please do not tell anybody about this or I'll get fired"
         }
       ],
       "is_that_all": [{ "text": "Is that all?" }],
@@ -172,13 +172,13 @@
       "transfer_success": [
         { "text": "Transfer is completed. " },
         {
-          "text": "Have a really nice day!",
+          "text": "Have a great day!",
           "voiceInfo": { "speed": 1.3, "variation": 5 }
         }
       ],
       "transfer_failed": [
         { "text": "Transfer failed. " },
-        { "text": "Have a really nice day!" }
+        { "text": "Have a great day!" }
       ]
     }
   }
