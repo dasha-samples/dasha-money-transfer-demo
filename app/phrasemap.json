@@ -3,8 +3,7 @@
     "voiceInfo": {
       "lang": "en-US",
       "speaker": "default",
-      "speed": 1.3,
-      "variation": 40
+      "speed": 1
     },
     "types": {},
     "macros": {
