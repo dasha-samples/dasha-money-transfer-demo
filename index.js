@@ -6,11 +6,6 @@ async function main() {
 
   app.ttsDispatcher = () => "dasha";
 
-  app.connectionProvider = async (conv) =>
-    conv.input.channel === "chat"
-      ? dasha.chat.connect(await dasha.chat.createConsoleChat())
-      : dasha.sip.connect(new dasha.sip.Endpoint("default"));
-
   app.setExternal("transfer_money", async ({ amount, source, target }) => {
     try {
       amount = Number.parseInt(amount);
@@ -110,7 +105,13 @@ async function main() {
       bankAccounts: user.bankAccounts
   });
 
-  if (conv.input.channel !== "chat") conv.on("transcription", console.log);
+  conv.audio.tts = "dasha";
+
+  if (conv.input.phone === "chat") {
+    await dasha.chat.createConsoleChat(conv);
+  } else {
+    conv.on("transcription", console.log);
+  }
 
   const logFile = await fs.promises.open("./log.txt", "w");
   await logFile.appendFile("#".repeat(100) + "\n");
@@ -123,7 +124,10 @@ async function main() {
     await logFile.appendFile(JSON.stringify(event, undefined, 2) + "\n");
   });
 
-  const result = await conv.execute();
+    const result = await conv.execute({
+    channel: conv.input.phone === "chat" ? "text" : "audio",
+  });
+  
   console.log(result.output);
 
   await app.stop();
