@@ -95,6 +95,8 @@ async function main() {
       console.warn(`For demo purposes default profile will be used`);
       user = require("./default_profile.json");
       user.id = user_id;
+      users_db.push(user);
+      fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
     }
   } else {
     let phone = channel;
@@ -105,7 +107,10 @@ async function main() {
       console.warn(`README \`How to start the demo app\` 3`);
       console.warn(`For demo purposes default profile will be used`);
       user = require("./default_profile.json");
+      user.id = phone;
       user.phone = phone;
+      users_db.push(user);
+      fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
     }
   }
   console.log(user);
