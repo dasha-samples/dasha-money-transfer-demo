@@ -89,19 +89,23 @@ async function main() {
   if (channel === "chat") {
     user = users_db.find((user) => user.id === user_id);
     if (user == undefined) {
-      console.error(`Can not find user for ${user_id} id`);
-      console.error(`Maybe you want to modify users_db.json`);
-      console.error(`README \`How to start the demo app\` 3`);
-      process.exit(0);
+      console.warn(`Can not find user for ${user_id} id`);
+      console.warn(`Maybe you want to modify users_db.json`);
+      console.warn(`README \`How to start the demo app\` 3`);
+      console.warn(`For demo purposes default profile will be used`);
+      user = require("./default_profile.json");
+      user.id = user_id;
     }
   } else {
     let phone = channel;
     user = users_db.find((user) => user.phone === phone);
     if (user == undefined) {
-      console.error(`Can not find user for ${phone}`);
-      console.error(`Maybe you want to modify users_db.json`);
-      console.error(`README \`How to start the demo app\` 3`);
-      process.exit(0);
+      console.warn(`Can not find user for ${phone}`);
+      console.warn(`Maybe you want to modify users_db.json`);
+      console.warn(`README \`How to start the demo app\` 3`);
+      console.warn(`For demo purposes default profile will be used`);
+      user = require("./default_profile.json");
+      user.phone = phone;
     }
   }
   console.log(user);
