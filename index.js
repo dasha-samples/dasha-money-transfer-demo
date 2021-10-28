@@ -4,26 +4,25 @@ const fs = require("fs");
 async function main() {
   const app = await dasha.deploy("./app");
 
-  app.ttsDispatcher = () => "dasha";
-
-  app.connectionProvider = async (conv) =>
-    conv.input.channel === "chat"
-      ? dasha.chat.connect(await dasha.chat.createConsoleChat())
-      : dasha.sip.connect(new dasha.sip.Endpoint("default"));
-
   app.setExternal("transfer_money", async ({ amount, source, target }) => {
     try {
       amount = Number.parseInt(amount);
-      let source_account = user.userAccounts.find(account => account.name === source.name);
+      let source_account = user.userAccounts.find(
+        (account) => account.name === source.name
+      );
       if (source_account === undefined) {
         throw new Error(JSON.stringify(source));
       }
       if (amount > source_account.balance) {
         return false;
       }
-      let target_account = user.userAccounts.find(account => account.name === target.name);
+      let target_account = user.userAccounts.find(
+        (account) => account.name === target.name
+      );
       if (target_account === undefined) {
-        target_account = user.bankAccounts.find(account => account.name === target.name);
+        target_account = user.bankAccounts.find(
+          (account) => account.name === target.name
+        );
         if (target_account === undefined) {
           throw new Error(JSON.stringify(target));
         }
@@ -43,13 +42,15 @@ async function main() {
       console.log({ resolve_source_account_args: JSON.stringify(account) });
 
       let source_account = user.userAccounts.find((acc) => {
-        return account === acc.name || account.replace(/ /g, "") === acc.num.replace(/ /g, "")
+        return (
+          account === acc.name ||
+          account.replace(/ /g, "") === acc.num.replace(/ /g, "")
+        );
       });
       if (source_account !== undefined) {
         return source_account;
       }
       throw new Error(JSON.stringify(account));
-
     } catch (e) {
       console.log({ resolve_source_account_err: e.message });
       return undefined;
@@ -61,56 +62,75 @@ async function main() {
       console.log({ resolve_target_account_args: JSON.stringify(account) });
 
       let target_account = user.userAccounts.find((acc) => {
-        return account === acc.name || account === acc.num.replace(/ /g, "")
+        return account === acc.name || account === acc.num.replace(/ /g, "");
       });
       if (target_account !== undefined) {
         return target_account;
       }
 
       target_account = user.bankAccounts.find((acc) => {
-        return account === acc.name || account === acc.num.replace(/ /g, "")
+        return account === acc.name || account === acc.num.replace(/ /g, "");
       });
       if (target_account !== undefined) {
         return target_account;
       }
       console.warn(`Can't find account ${account}`);
       return null;
-
     } catch (e) {
       console.log({ resolve_target_account_err: e });
       return null;
     }
   });
 
-
   const channel = process.argv[2];
   const user_id = process.argv[3];
-  const users_db = require('./users_db.json')
+  const users_db = require("./users_db.json");
   let user = undefined;
-  if (channel == "chat") {
-    user = users_db.find(user => user.id === user_id);
-    if (user == undefined)
-      console.error(`Can not find user for ${user_id} id`);
-  }
-  else {
+  let user_created = false;
+
+  if (channel === "chat") {
+    user = users_db.find((user) => user.id === user_id);
+    if (user == undefined) {
+      console.warn(`Can not find user for ${user_id} id`);
+      console.warn(`Maybe you want to modify users_db.json`);
+      console.warn(`README \`How to start the demo app\` 3`);
+      console.warn(`For demo purposes default profile will be used`);
+      user = require("./default_profile.json");
+      user.id = user_id;
+      user_created = true;
+    }
+  } else {
     let phone = channel;
-    user = users_db.find(user => user.phone === phone);
-    if (user == undefined)
-      console.error(`Can not find user for ${phone}`);
+    user = users_db.find((user) => user.phone === phone);
+    if (user == undefined) {
+      console.warn(`Can not find user for ${phone}`);
+      console.warn(`Maybe you want to modify users_db.json`);
+      console.warn(`README \`How to start the demo app\` 3`);
+      console.warn(`For demo purposes default profile will be used`);
+      user = require("./default_profile.json");
+      user.id = phone;
+      user.phone = phone;
+      user_created = true;
+    }
   }
   console.log(user);
-
 
   await app.start();
 
   const conv = app.createConversation({
     channel: channel,
-      phone: user.phone,
-      userAccounts: user.userAccounts,
-      bankAccounts: user.bankAccounts
+    phone: user.phone,
+    userAccounts: user.userAccounts,
+    bankAccounts: user.bankAccounts,
   });
 
-  if (conv.input.channel !== "chat") conv.on("transcription", console.log);
+  if (channel !== "chat") {
+    conv.on("transcription", console.log);
+    conv.sip.config = "default";
+    conv.audio.tts = "dasha";
+  } else {
+    await dasha.chat.createConsoleChat(conv);
+  }
 
   const logFile = await fs.promises.open("./log.txt", "w");
   await logFile.appendFile("#".repeat(100) + "\n");
@@ -123,9 +143,17 @@ async function main() {
     await logFile.appendFile(JSON.stringify(event, undefined, 2) + "\n");
   });
 
-  const result = await conv.execute();
+  const result = await conv.execute({
+    channel: channel === "chat" ? "text" : "audio",
+  });
   console.log(result.output);
 
+  if (user_created) {
+    users_db.push(user);
+  }
+
+  fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
+  console.log(`Database was updated`);
   await app.stop();
   app.dispose();
 

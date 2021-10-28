@@ -10,7 +10,7 @@ This example shows how to build an interactive flow that includes processing use
 ```sh
 git clone https://github.com/dasha-samples/dasha-money-transfer-demo
 cd dasha-money-transfer-demo
-npm install
+npm ci
 ```
 
 2. Create or log into your account using the Dasha CLI tool:

@@ -1,0 +1,28 @@
+{
+  "id": "0",
+  "phone": "123456789",
+  "userAccounts": [
+    {
+      "name": "savings",
+      "num": "12 65",
+      "balance": 223
+    },
+    {
+      "name": "deposit",
+      "num": "81 45",
+      "balance": 1654
+    }
+  ],
+  "bankAccounts": [
+    {
+      "name": "Wells Fargo",
+      "num": "92 41",
+      "balance": 95
+    },
+    {
+      "name": "Bank of America",
+      "num": "48 79",
+      "balance": 2500
+    }
+  ]
+}
