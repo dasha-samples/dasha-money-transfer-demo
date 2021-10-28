@@ -150,10 +150,10 @@ async function main() {
 
   if (user_created) {
     users_db.push(user);
-    fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
-    console.log(`Created user was saved in database`);
   }
 
+  fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
+  console.log(`Database was updated`);
   await app.stop();
   app.dispose();
 
