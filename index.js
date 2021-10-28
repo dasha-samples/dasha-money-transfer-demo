@@ -86,6 +86,8 @@ async function main() {
   const user_id = process.argv[3];
   const users_db = require("./users_db.json");
   let user = undefined;
+  let user_created = false;
+
   if (channel === "chat") {
     user = users_db.find((user) => user.id === user_id);
     if (user == undefined) {
@@ -95,8 +97,7 @@ async function main() {
       console.warn(`For demo purposes default profile will be used`);
       user = require("./default_profile.json");
       user.id = user_id;
-      users_db.push(user);
-      fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
+      user_created = true;
     }
   } else {
     let phone = channel;
@@ -109,8 +110,7 @@ async function main() {
       user = require("./default_profile.json");
       user.id = phone;
       user.phone = phone;
-      users_db.push(user);
-      fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
+      user_created = true;
     }
   }
   console.log(user);
@@ -147,6 +147,12 @@ async function main() {
     channel: channel === "chat" ? "text" : "audio",
   });
   console.log(result.output);
+
+  if (user_created) {
+    users_db.push(user);
+    fs.writeFileSync("./users_db.json", JSON.stringify(users_db, null, 2));
+    console.log(`Created user was saved in database`);
+  }
 
   await app.stop();
   app.dispose();
