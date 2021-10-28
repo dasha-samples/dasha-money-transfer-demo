@@ -6,22 +6,24 @@
       {
         "name": "savings",
         "num": "12 65",
-        "balance": 223
+        "balance": 222
       },
       {
         "name": "deposit",
         "num": "81 45",
-        "balance": 1655
+        "balance": 1654
       }
     ],
     "bankAccounts": [
       {
         "name": "Wells Fargo",
-        "num": "92 41"
+        "num": "92 41",
+        "balance": 96
       },
       {
         "name": "Bank of America",
-        "num": "48 79"
+        "num": "48 79",
+        "balance": 2500
       }
     ]
   },
@@ -38,11 +40,13 @@
     "bankAccounts": [
       {
         "name": "Wells Fargo",
-        "num": "12 98"
+        "num": "12 98",
+        "balance": 192
       },
       {
         "name": "JPMorgan Chase",
-        "num": "25 84"
+        "num": "25 84",
+        "balance": 27
       }
     ]
   }
